@@ -10,7 +10,7 @@
 	// @endif
 	"name":"Mastodon Share",
 	"description": "__MSG_description__",
-	"version":"0.5",
+	"version":"0.6",
 	"default_locale": "en",
 
 	// @if ENV='firefox'
@@ -22,8 +22,7 @@
 	// @endif
 
 	"browser_action":{
-		"default_icon":"assets/images/icon.png",
-		"default_popup":"popup.html"
+		"default_icon":"assets/images/icon.png"
 	},
 
 	"content_scripts":[
@@ -32,17 +31,31 @@
 				"https://twitter.com/*"
 			],
 			"js":[
-				"assets/scripts/functions.js","assets/scripts/twitter.js"
+				"assets/scripts/functions.js",
+				"assets/scripts/twitter.js"
+			]
+		},
+		{
+			"matches": [
+				"<all_urls>"
+			],
+			"css": [
+				"assets/styles/prompt.css"
+			],
+			"js": [
+				"assets/scripts/prompt.js"
 			]
 		}
 	],
 	"background":{
 		"scripts":[
+			"assets/scripts/background.js",
 			"assets/scripts/interceptor.js",
 			"assets/scripts/menu.js",
 			"assets/scripts/functions.js",
 			"assets/scripts/twitter.js"
-		]
+		],
+		"persistent": false
 	},
 	"permissions":[
 		"contextMenus",
@@ -56,5 +69,10 @@
 		"16":"assets/images/icon16.png",
 		"32":"assets/images/icon32.png",
 		"64":"assets/images/icon64.png"
-	}
+	},
+	"web_accessible_resources": [
+		"assets/images/mastodon-fly.png",
+		"assets/styles/prompt.css",
+		"popup.html"
+	]	
 }

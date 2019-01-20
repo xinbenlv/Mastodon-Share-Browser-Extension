@@ -1,0 +1,51 @@
+
+#MastodonShareLayer{
+    background-color: rgba(0,0,0,0.8);
+    position:fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left:0;
+    z-index: 100000000000000;
+    transition: background-color 1s;
+}
+
+#MastodonShareLayer.off{
+    pointer-events: none;
+    background-color:transparent;
+    
+}
+
+#MastodonShareLayer.off #MastodonSharePrompt{
+    left: calc(100vw + 400px);
+}
+
+#MastodonSharePrompt{
+
+    background-color: #272b30;
+    width: 355px;
+    height: 525px;
+
+    position: fixed;
+    z-index: 1000000000000;
+    
+    top: calc(50% - (525px / 2));
+    left: calc(50% - (355px / 2));
+    
+    border-radius: 10px;
+
+    transition: left 500ms ease-in-out;
+}
+
+#MastodonSharePrompt #fly{
+    width: 150px;
+    position: absolute;
+    top: -130px;
+    left: calc(50% - (150px /2));
+}
+
+#MastodonSharePrompt iframe{
+    border-radius: 10px;
+    width: inherit;
+    height: inherit;
+}
