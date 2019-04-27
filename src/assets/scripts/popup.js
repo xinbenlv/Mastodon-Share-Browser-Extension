@@ -112,11 +112,11 @@ function toot(){
 
         if (items.accessKey !== '') {
 
-
             var api = new MastodonAPI({
                 instance: items.instanceUrl,
                 api_user_token: items.accessKey
             });
+
             var finalMessage = message.value;
             var visibility = tootType.value;
             var spoilerText = disclaimer.value;
@@ -175,7 +175,7 @@ btnToot.addEventListener('click', toot);
 btnClear.addEventListener('click', clear);
 document.addEventListener('DOMContentLoaded', init);
 // btnPicture.addEventListener('click', addPicture);
-uploader.addEventListener('change', uploadPictures);
+// uploader.addEventListener('change', uploadPictures);
 
 setInterval(function(){
     var currentTootSize = message.value.toString().length;

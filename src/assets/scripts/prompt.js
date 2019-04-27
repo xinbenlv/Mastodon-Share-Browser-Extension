@@ -1,4 +1,5 @@
 var prompt = document.getElementById('MastodonSharePrompt');
+var layer = document.getElementById('MastodonShareLayer');
 
 function insertPopup(){   
 
@@ -7,6 +8,8 @@ function insertPopup(){
         var layer = document.createElement('div');
         layer.id="MastodonShareLayer"
         layer.classList.add('off');
+
+        layer.addEventListener('click', hidePopup);
         
         prompt = document.createElement('div');
         prompt.id = 'MastodonSharePrompt';
@@ -40,6 +43,14 @@ function showPopup(){
 
     layer.classList.remove('off');
     prompt.classList.remove('off');
+}
+
+function hidePopup() {
+    var layer = document.getElementById('MastodonShareLayer');
+    var prompt = document.getElementById('MastodonSharePrompt');
+
+    layer.classList.add('off');
+    prompt.classList.add('off');
 }
 
 insertPopup();
